@@ -1,0 +1,6 @@
+<%= simple_form_for @label do |f| %>
+  <%= f.input :name, as: :string %>
+  <%= f.input :used_count, as: :integer %>
+  <%= f.input :active, as: :boolean %>
+  <%= f.button :submit, 'my botton', class: 'my-botton'  %>
+<% end %>

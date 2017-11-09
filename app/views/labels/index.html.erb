@@ -1,0 +1,32 @@
+<table>
+  <thead>
+    <tr>
+      <td>标签名</td>
+      <td>使用次数</td>
+      <td>状态</td>
+      <td>编辑</td>
+      <td>删除</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @labels.each do |label| %>
+      <tr>
+        <td><%= label.name %></td>
+        <td><%= label.used_count %></td>
+        <td><%= label.active %></td>
+        <td><%= link_to('编辑', edit_label_path(label)) %></td>
+        <td><%= link_to('删除', label_path(label), method: :delete) %></td>
+        <td>
+          <% if label.active %>
+            <%= link_to "取消激活", unlive_label_path(label,page: params[:page]), method: :put, class: "btn btn-default btn-xs" %>
+          <% else %>
+            <%= link_to "激活", live_label_path(label,page: params[:page]), method: :put, class: "btn btn-default btn-xs" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to('新增标签', new_label_path) %>

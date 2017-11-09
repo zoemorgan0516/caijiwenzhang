@@ -1,0 +1,25 @@
+<%= simple_form_for @article do |f| %>
+
+<%= f.input :title, as: :string %>
+<%= f.input :content, as: :text %>
+<%= f.input :gonghao_name, as: :string %>
+<%= f.input :traffic, as: :integer %>
+<% @labels.each_with_index do |label, index| %>
+  <input id="" name="checked_labels[<%= index %>]" type="checkbox" value="<%= label[1] %>" <%= @article.labels.find(label[1]).nil? ? '' : 'checked' %> />
+  <label for="pet_dog"><%= label[0] %></label>
+<% end %>
+
+<% @pictures.each_with_index do |picture, index| %>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <% if picture.persisted? %>
+      <img src="<%= picture.image.url('40') %>">
+        <%= link_to "修改", edit_article_picture_path(id: picture.id, article_id: params[:id]), class: "btn btn-default btn-xs" %>
+        <%= link_to "删除", article_picture_path(id: picture.id, article_id: params[:id]), method: :delete, class: "btn btn-default btn-xs" %>
+        <% if (index + 1) % 2 == 0 %>
+          <br>
+        <% end %>
+    <% end %>
+<% end %>
+
+<%= f.button :submit, "User Button Text", class: "my-button" %>
+<% end %>

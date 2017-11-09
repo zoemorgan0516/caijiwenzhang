@@ -1,0 +1,13 @@
+<%= simple_form_for @article do |f| %>
+
+<%= f.input :title, as: :string %>
+<%= f.input :content, as: :text %>
+<%= f.input :gonghao_name, as: :string %>
+<%= f.input :traffic, as: :integer %>
+<% @labels.each_with_index do |label, index| %>
+  <input id="" name="checked_labels[<%= index %>]" type="checkbox" value="<%= label[1] %>" <%= @article.labels.find(label[1]).nil? ? '' : 'checked' %> />
+  <label for="pet_dog"><%= label[0] %></label>
+<% end %>  </div>
+
+<%= f.button :submit, "User Button Text", class: "my-button" %>
+<% end %>

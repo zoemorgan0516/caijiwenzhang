@@ -33,6 +33,13 @@ gem 'jbuilder', '~> 2.5'
 gem 'mongoid'
 gem 'devise'
 gem 'simple_form'
+gem 'cancancan'
+
+# 云存储gem
+gem 'carrierwave'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'carrierwave-upyun'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

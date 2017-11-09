@@ -1,0 +1,25 @@
+<table>
+  <thead>
+    <tr>
+      <td>标题</td>
+			<td>来源</td>
+			<td>阅读量</td>
+			<td>编辑删除</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articles.each do |article| %>
+			<tr>
+				<%= link_to(article.title, article_path(article))%>
+				<%= article.gonghao_name %>
+				<%= article.traffic %>
+				<%= link_to('edit', edit_article_path(article)) %>
+				<%= link_to('delete', article_path(article), method: :delete) %>
+			</tr>
+		<% end %>
+  </tbody>
+</table>
+
+<%= link_to("发表文章", new_article_path)%>
+<%= link_to('新增标签', new_label_path) %>
