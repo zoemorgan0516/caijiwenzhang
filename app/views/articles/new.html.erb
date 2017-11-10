@@ -4,6 +4,7 @@
   <%= f.input :content, as: :text %>
   <%= f.input :gonghao_name, as: :string %>
   <%= f.input :traffic, as: :integer %>
+  <%= f.input :avatar %>
   <% @labels.each_with_index do |label, index| %>
     <input id="" name="checked_labels[<%= index %>]" type="checkbox" value="<%= label[1] %>" <%= @article.labels.find(label[1]).nil? ? '' : 'checked' %> />
     <label for="pet_dog"><%= label[0] %></label>

@@ -6,5 +6,10 @@
 <label class="col-sm-2 control-label string optional" for="article_from">文章标签</label>
 <% @article.labels.each do |label| %>
    <%= label.name %>
+<% end %>
 
+<% if @article.avatar %>
+  <%= image_tag(@article.avatar.url("666")) %>
+<% else %>
+  <%= 'sorry, no pics' %>
 <% end %>

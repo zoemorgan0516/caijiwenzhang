@@ -1,4 +1,8 @@
+AVATAR_UPLOADER_ALLOW_AVATAR_VERSION_NAMES = "666"
 class AvatarUploader < CarrierWave::Uploader::Base
+
+
+
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -21,6 +25,23 @@ class AvatarUploader < CarrierWave::Uploader::Base
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
+
+  # Override url method to implement with "Image Space"
+def url(version_name = "")
+  @url ||= super({})
+  version_name = version_name.to_s
+  return @url if version_name.blank?
+  if not version_name.in?(AVATAR_UPLOADER_ALLOW_AVATAR_VERSION_NAMES)
+    # To protected version name using, when it not defined, this will be give an error message in development environment
+    raise "Avatarloader version_name:#{version_name} not allow."
+  end
+  [@url,version_name].join("!") # thumb split with "!"
+end
+
+def extension_white_list
+  %w(jpg jpeg png)
+end
+
 
   # Process files as they are uploaded:
   # process scale: [200, 300]

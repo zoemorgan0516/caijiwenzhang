@@ -6,6 +6,9 @@ class Article
   field :gonghao_name, type: String
   field :traffic, type: Integer
   field :label, type: Boolean
+  
+
+  mount_uploader :avatar, AvatarUploader
 
 
 
