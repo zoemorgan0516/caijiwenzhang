@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
 	def show
 		@article = Article.find(params[:id])
 		@label = @article.labels
+
 	end
 
   def new
@@ -22,6 +23,8 @@ class ArticlesController < ApplicationController
 		puts selected_labels
 		puts "-" * 20
 		@article.labels << selected_labels
+
+
 
   	if @article.save
   		redirect_to articles_path
@@ -59,7 +62,7 @@ class ArticlesController < ApplicationController
 
  	def article_params
 		# params[:article][:title]
- 		params.require(:article).permit(:title, :content, :gonghao_name, :traffic)
+ 		params.require(:article).permit(:title, :content, :gonghao_name, :traffic, :image)
  	end
 
 

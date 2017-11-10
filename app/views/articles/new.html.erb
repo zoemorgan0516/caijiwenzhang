@@ -8,6 +8,7 @@
     <input id="" name="checked_labels[<%= index %>]" type="checkbox" value="<%= label[1] %>" <%= @article.labels.find(label[1]).nil? ? '' : 'checked' %> />
     <label for="pet_dog"><%= label[0] %></label>
   <% end %>
+  <%= f.input :image, as: :file %>
   <%= f.button :submit, "提 交", class: "btn btn-primary" %>
 
 <% end %>
