@@ -1,7 +1,6 @@
 <%= simple_form_for @article do |f| %>
-<input type="text" name="title" value="">
 
-  <%#= f.input :title, as: :string %>
+  <%= f.input :title, as: :string %>
   <%= f.input :content, as: :text %>
   <%= f.input :gonghao_name, as: :string %>
   <%= f.input :traffic, as: :integer %>

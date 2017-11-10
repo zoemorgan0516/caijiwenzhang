@@ -16,7 +16,6 @@ class ArticlesController < ApplicationController
   end
 
   def create
-		@article = Article.new(title: params[:title], content: params[:article][:content] )
   	@article = Article.new(article_params)
 		selected_labels = Label.in(id: params["checked_labels"]&.values)
 		puts "=" * 20
