@@ -1,0 +1,8 @@
+<tr>
+  <td><%= link_to(article.title, article_path(article))%></td>
+  <td><%= article.gonghao_name %></td>
+  <td><%= article.traffic %></td>
+  <td><%= link_to('edit', edit_article_path(article), class: "btn btn-sm btn-default" ) %></td>
+  <td><%= link_to('delete', article_path(article), class: "btn btn-sm btn-default",
+              method: :delete, data: { confirm: "Are you sure?" } ) %></td>
+</tr>

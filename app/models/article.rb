@@ -8,7 +8,8 @@ class Article
   field :label, type: Boolean
 
 
-  has_and_belongs_to_many :labels
+
+  has_and_belongs_to_many :labels, autosave: true
   belongs_to :user, index: true
   has_many :pictures
 

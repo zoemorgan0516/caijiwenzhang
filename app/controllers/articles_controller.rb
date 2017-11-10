@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
 
 	def show
 		@article = Article.find(params[:id])
+		@label = @article.labels
 	end
 
   def new
@@ -15,9 +16,14 @@ class ArticlesController < ApplicationController
   end
 
   def create
+		@article = Article.new(title: params[:title], content: params[:article][:content] )
   	@article = Article.new(article_params)
-		selected_labels = Label.in(id: params["check_labels"].try(:values))
+		selected_labels = Label.in(id: params["checked_labels"]&.values)
+		puts "=" * 20
+		puts selected_labels
+		puts "-" * 20
 		@article.labels << selected_labels
+
   	if @article.save
   		redirect_to articles_path
   	else
@@ -53,6 +59,7 @@ class ArticlesController < ApplicationController
  	private
 
  	def article_params
+		# params[:article][:title]
  		params.require(:article).permit(:title, :content, :gonghao_name, :traffic)
  	end
 

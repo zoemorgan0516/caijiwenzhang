@@ -24,8 +24,9 @@ class PicturesController < ApplicationController
   # POST /pictures
   # POST /pictures.json
   def create
-    @picture = Picture.new(picture_params)
+    @article = Article.find(params[:article_id])
 
+    @picture = @article.pictures.new(picture_params)
     respond_to do |format|
       if @picture.save
         format.html { redirect_to @picture, notice: 'Picture was successfully created.' }

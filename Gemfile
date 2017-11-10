@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'https://ruby.china-gems.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -34,6 +34,8 @@ gem 'mongoid'
 gem 'devise'
 gem 'simple_form'
 gem 'cancancan'
+gem 'bootstrap'
+
 
 # 云存储gem
 gem 'carrierwave'
