@@ -6,7 +6,8 @@ class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.json
   def index
-    @pictures = Picture.all
+    @articles = Article.all
+    @pictures = @articles.avatars.all
   end
 
   # GET /pictures/1

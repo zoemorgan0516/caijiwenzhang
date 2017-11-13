@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :pictures
   devise_for :users
 
+  resources :pictures
 
   resources :articles do
     resources :pictures

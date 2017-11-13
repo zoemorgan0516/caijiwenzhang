@@ -1,8 +1,11 @@
 <div class="col-md-12">
   <div>
     <%= link_to("管理文章", articles_path, class: "btn btn-primary") %>
+
     <% if can? :read, Label %>
       <%= link_to('管理标签', labels_path, class: "btn btn-primary") %>
+      <%= link_to("管理图片", pictures_path, class: "btn btn-primary") %>
+
     <% end %>
     <% if can? :manage, User %>
       <%= link_to('管理用户', users_path, class: "btn btn-primary") %>
