@@ -1,4 +1,7 @@
 class LabelsController < ApplicationController
+  before_action :authenticate_user!
+  load_and_authorize_resource
+
   def index
     @labels = Label.all
   end
@@ -33,7 +36,7 @@ class LabelsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @label = Label.find(params[:id])
     @label.destroy
     redirect_to labels_path

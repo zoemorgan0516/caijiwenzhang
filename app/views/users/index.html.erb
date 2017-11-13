@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <td>用户名</td>
+      <td>用户邮箱</td>
+      <td>身份</td>
+      <td>edit</td>
+      <td>delete</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <%= render(@users) %>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to('新建用户', new_user_path(@user)) %>

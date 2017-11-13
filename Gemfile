@@ -35,6 +35,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'cancancan'
 gem 'bootstrap'
+gem 'cancancan'
 
 
 # 云存储gem
