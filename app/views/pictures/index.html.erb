@@ -12,7 +12,7 @@
   <tbody>
     <% @pictures.each do |picture| %>
       <tr>
-        <td><%= image_tag picture.image.url('666') %></td>
+        <td><%= image_tag(@picture.remote_avatar_url("666")) %></td>
 
         <td><%= link_to 'Show', picture %></td>
         <td><%= link_to 'Edit', edit_picture_path(picture) %></td>

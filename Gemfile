@@ -37,11 +37,20 @@ gem 'cancancan'
 gem 'bootstrap'
 gem 'cancancan'
 
+# 后台管理
+gem 'sidekiq'
+gem 'redis'
+gem "sidekiq-cron"
+
 
 # 云存储gem
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'carrierwave-upyun'
+
+# 分页
+gem 'kaminari'
+gem 'kaminari-mongoid'
 
 
 group :development, :test do
