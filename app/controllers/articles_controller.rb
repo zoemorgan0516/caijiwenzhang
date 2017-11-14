@@ -5,7 +5,7 @@ before_action :authenticate_user!
 
 	def index
 		@articles = Article.all.page params[:page]
-    
+
 	end
 
 	def show
@@ -61,7 +61,7 @@ before_action :authenticate_user!
  	private
 
  	def article_params
- 		params.require(:article).permit(:title, :content, :gonghao_name, :traffic, :avatar)
+ 		params.require(:article).permit(:title, :content, :gonghao_name, :traffic, :picture)
  	end
 
 

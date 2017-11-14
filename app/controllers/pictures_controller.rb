@@ -27,17 +27,8 @@ class PicturesController < ApplicationController
   # POST /pictures.json
   def create
     @article = Article.find(params[:article_id])
+    @picture.get_ariticle_picture_url
 
-    @picture = @article.pictures.new(picture_params)
-    respond_to do |format|
-      if @picture.save
-        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
-        format.json { render :show, status: :created, location: @picture }
-      else
-        format.html { render :new }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /pictures/1
@@ -68,10 +59,11 @@ class PicturesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_picture
       @picture = Article.find(params[:article_id]).pictures.find(params[:id])
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-      params.require(:picture).permit(:image)
+      params.require(:picture).permit(:avatar)
     end
 end

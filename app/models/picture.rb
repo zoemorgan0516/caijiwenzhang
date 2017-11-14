@@ -5,9 +5,7 @@ class Picture
   mount_uploader :avatar, AvatarUploader
 
   belongs_to :article
-  def self.get_ariticle_pictures
-    Article.all.each do |article|
+  def get_ariticle_picture_url(article)
       Picture.create(remote_avatar_url: article.avatar_url) if article.avatar_url
-    end
   end
 end
