@@ -24,6 +24,15 @@ class UsersController < ApplicationController
     # @user = current_user
   end
 
+  def sign
+    if @user.daka
+      flash[:notice] = "您已经打过卡了"
+    else
+      flash[:notice] = "恭喜您打卡成功"
+    end
+    redirect_to users_path(page: params[:page])
+  end
+
   # def update_password
   #   @user = current_user
   #   if @user.update(user_params)

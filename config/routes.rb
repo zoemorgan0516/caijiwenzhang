@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :qiandaos
   resources :pictures
   devise_for :users
 
@@ -16,7 +17,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, :path => "what"
+  resources :users, :path => "what" do
+    resources :qiandaos
+    member do
+      put :sign
+    end
+  end
 
 
   root 'articles#index'

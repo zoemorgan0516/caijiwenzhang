@@ -12,7 +12,10 @@ class User
   field :encrypted_password, type: String, default: ""
   field :role,               type: String
   field :username,           type: String
-  field :active, type: Boolean, default: false
+  field :active,             type: Boolean, default: false
+  field :score,              type: Integer, default: 0
+
+  has_many :qiandaos
 
   ## Recoverable
   field :reset_password_token,   type: String
@@ -35,6 +38,18 @@ class User
   def admin?
     role == 'admin'
   end
+
+  def daka
+    if self.qiandaos.between(created_at: [Date.today.beginning_of_day, Date.today.end_of_day]).any?
+      false
+    else
+      add_score = rand(10)
+      self.inc(score: add_score)
+      self.qiandaos.create(score: add_score, type: "用户签到")
+    end
+  end
+
+
 
   ## Confirmable
   # field :confirmation_token,   type: String

@@ -2,6 +2,7 @@
   <div class="btn btn-default pull-right" >
     <%if user_signed_in? %>
       Hi!, <%= current_user.email %>
+      <%= link_to("打卡", sign_user_path(current_user, page: params[:page]), method: :put) %>
       <%= link_to('登出', destroy_user_session_path, method: :delete, data:{confirm: 'are you sure?'} ) %>
     <% else %>
       <% link_to('登入', new_user_session_path) %>

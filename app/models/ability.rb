@@ -11,9 +11,11 @@ class Ability
          can :manage, Article
          can :manage, Picture
          can :read, Label
+         can :sign, User
        else user.role == "user"
          can :read, Article
          can :read, Picture
+         can :sign, User
        end
     #
     # The first argument to `can` is the action you are giving the user
