@@ -6,8 +6,7 @@ class PicturesController < ApplicationController
   # GET /pictures
   # GET /pictures.json
   def index
-    @articles = Article.all
-    @pictures = @articles.avatars.all
+    @pictures = Picture.all
   end
 
   # GET /pictures/1
@@ -30,9 +29,10 @@ class PicturesController < ApplicationController
     @article = Article.find(params[:article_id])
 
     @picture = @article.pictures.new(picture_params)
+
     respond_to do |format|
       if @picture.save
-        format.html { redirect_to @picture, notice: 'Picture was successfully created.' }
+        format.html { redirect_to article_path(@article), notice: 'Picture was successfully created.' }
         format.json { render :show, status: :created, location: @picture }
       else
         format.html { render :new }
@@ -73,6 +73,6 @@ class PicturesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def picture_params
-      params.require(:picture).permit(:image)
+      params.require(:picture).permit(:avatar)
     end
 end

@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= link_to 'New Picture', new_picture_path %>
 <h1>Pictures</h1>
 
 <table>
@@ -12,7 +12,7 @@
   <tbody>
     <% @pictures.each do |picture| %>
       <tr>
-        <td><%= image_tag picture.image.url('666') %></td>
+        <td><%= image_tag picture.avatar.url('666') %></td>
 
         <td><%= link_to 'Show', picture %></td>
         <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
@@ -23,5 +23,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Picture', new_picture_path %>

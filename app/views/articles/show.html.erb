@@ -8,8 +8,16 @@
    <%= label.name %>
 <% end %>
 
-<% if @article.avatar %>
-  <%= image_tag(@article.avatar.url("666")) %>
-<% else %>
-  <%= 'sorry, no pics' %>
-<% end %>
+<hr />
+<p>
+
+  <% @pictures.each_with_index do |picture, index| %>
+     <% if picture.persisted? %>
+    <img src="<%= picture.avatar.url('40') %>">
+      <%= link_to "修改", edit_article_picture_path(id: picture.id, article_id: params[:id]), class: "btn btn-default btn-xs" %>
+      <%= link_to "删除", article_picture_path(id: picture.id, article_id: params[:id]), method: :delete, class: "btn btn-default btn-xs" %>
+    <% if (index + 1) % 2 == 0 %>
+      <br />
+    <% end -%>
+    <% end -%>
+    <% end %>

@@ -10,11 +10,13 @@ before_action :authenticate_user!
 	def show
 		@article = Article.find(params[:id])
 		@label = @article.labels
+    @pictures = @article.pictures
 	end
 
   def new
   	@article = Article.new
 		@labels = Label.all.map{|label| [label.name, label.id.to_s]}
+    @picture = @article.pictures.new
   end
 
   def create
@@ -24,7 +26,6 @@ before_action :authenticate_user!
 		puts selected_labels
 		puts "-" * 20
 		@article.labels << selected_labels
-
   	if @article.save
   		redirect_to articles_path
   	else
@@ -60,7 +61,7 @@ before_action :authenticate_user!
  	private
 
  	def article_params
- 		params.require(:article).permit(:title, :content, :gonghao_name, :traffic, :avatar)
+ 		params.require(:article).permit(:title, :content, :gonghao_name, :traffic )
  	end
 
 

@@ -6,7 +6,7 @@ class Article
   field :gonghao_name, type: String
   field :traffic, type: Integer
   field :label, type: Boolean
-  
+
 
   mount_uploader :avatar, AvatarUploader
 
@@ -14,6 +14,6 @@ class Article
 
   has_and_belongs_to_many :labels, autosave: true
   belongs_to :user, index: true
-  has_many :pictures
+  has_and_belongs_to_many :pictures
 
 end
