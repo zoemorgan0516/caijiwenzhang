@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :messages
   resources :pictures
   devise_for :users
 
@@ -10,6 +11,11 @@ Rails.application.routes.draw do
     resources :pictures
   end
 
+  namespace 'admin' do
+    resources :messages
+  end
+
+  resources :messages
 
   resources :labels do
     member do

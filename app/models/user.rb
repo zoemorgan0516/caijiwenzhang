@@ -31,6 +31,7 @@ class User
 
   has_many :articles
 
+
   def admin?
     role == 'admin'
   end

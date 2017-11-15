@@ -1,0 +1,12 @@
+<%= simple_form_for(@message) do |f| %>
+
+
+  <div class="form-inputs">
+    <% f.input :sender_id, label: "发送人" %>
+    <% f.input :content, label: "内容" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

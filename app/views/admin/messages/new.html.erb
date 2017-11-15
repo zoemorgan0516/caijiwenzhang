@@ -1,0 +1,12 @@
+
+<%= simple_form_for @message do |f| %>
+
+
+    <%= f.input :sender_id, label: "发送人" %>
+    <%= f.input :content, label: "内容" %>
+
+
+  <%= f.button :submit, "提 交", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to 'Back', messages_path %>

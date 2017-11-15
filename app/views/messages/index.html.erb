@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Messages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <td>内容</td>
+      <td>查看</td>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @messages.each do |message| %>
+      <tr>
+        <td><%= message.content %></td>
+        <td><%= link_to 'Show', message %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
