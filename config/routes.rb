@@ -15,7 +15,12 @@ Rails.application.routes.draw do
     resources :messages
   end
 
-  resources :messages
+  resources :messages do
+    member do
+      put :checked
+      put :unchecked
+    end
+  end
 
   resources :labels do
     member do

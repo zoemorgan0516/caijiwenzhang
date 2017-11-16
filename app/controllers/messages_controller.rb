@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_action :set_message, only: [:show, :edit, :update, :destroy, :checked, :unchecked]
 
   # GET /messages
   # GET /messages.json
@@ -19,6 +19,16 @@ class MessagesController < ApplicationController
 
   # GET /messages/1/edit
   def edit
+  end
+
+  def checked
+    @message.update(status: true)
+    redirect_to messages_path
+  end
+
+  def unchecked
+    @message.update(status: false)
+    redirect_to messages_path
   end
 
   # POST /messages
@@ -69,6 +79,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:sender_id, :content)
+      params.require(:message).permit(:sender_id, :content, :status)
     end
 end

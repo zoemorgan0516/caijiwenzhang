@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Messages</h1>
+
 
 <table>
   <thead>
@@ -8,6 +8,7 @@
       <td>发送人</td>
       <td>内容</td>
       <td>查看</td>
+      <td>是否查看</td>
     </tr>
   </thead>
 
@@ -17,6 +18,13 @@
         <td><%= message.sender_id %></td>
         <td><%= message.content %></td>
         <td><%= link_to 'Show', message %></td>
+        <td>
+          <% if message.status %>
+            <%= link_to "未查看", unchecked_message_path(message), method: :put, class: "btn btn-default btn-xs" %>
+          <% else%>
+            <%= link_to "已查看", checked_message_path(message), method: :put, class: "btn btn-default btn-xs" %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

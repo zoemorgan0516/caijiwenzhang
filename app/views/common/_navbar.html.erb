@@ -4,9 +4,12 @@
       Hi!, <%= current_user.email %>
       <%= link_to('登出', destroy_user_session_path, method: :delete, data:{confirm: 'are you sure?'} ) %>
         <% if current_user.role == "admin" %>
-          <%= link_to('管理站内信', admin_messages_path) %>
+          <%= link_to('管理站内信', messages_path) %>|
+          你有  <%= Message.where(status: false).count %>  条Messages未查看
+          <%= link_to("点此查看",messages_path) %>
         <% else %>
-          <%= link_to('查看站内信', messages_path) %>
+        你有  <%= Message.where(status: false).count %>  条Messages未查看
+        <%= link_to("点此查看",messages_path) %>
         <% end %>
     <% else %>
       <% link_to('登入', new_user_session_path) %>

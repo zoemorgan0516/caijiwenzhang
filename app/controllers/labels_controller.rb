@@ -45,12 +45,14 @@ class LabelsController < ApplicationController
   def live
     @label = Label.find(params[:id])
     @label.update(active: true)
+    redirect_to labels_path
 
   end
 
   def unlive
     @label = Label.find(params[:id])
      @label.update(active: false)
+     redirect_to labels_path
 
   end
 
