@@ -1,6 +1,6 @@
 class LabelsController < ApplicationController
   before_action :authenticate_user!
-  load_and_authorize_resource
+  # load_and_authorize_resource
 
   def index
     @labels = Label.all
@@ -15,7 +15,7 @@ class LabelsController < ApplicationController
   end
 
   def create
-    @label = Label.new(article_params)
+    @label = Label.new(label_params)
     if @label.save
       redirect_to labels_path
     else
@@ -29,7 +29,7 @@ class LabelsController < ApplicationController
 
   def update
     @label = Label.find(params[:id])
-    if @label.update(article_params)
+    if @label.update(label_params)
       redirect_to labels_path
     else
       render :edit

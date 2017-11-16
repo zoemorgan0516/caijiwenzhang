@@ -1,0 +1,10 @@
+<%= simple_form_for(@tuku) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  </div>
+  <%= f.input :avatar, as: :file %>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

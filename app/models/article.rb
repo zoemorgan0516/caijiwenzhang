@@ -14,6 +14,7 @@ class Article
 
   has_and_belongs_to_many :labels, autosave: true
   belongs_to :user, index: true
-  has_and_belongs_to_many :pictures
+  has_many :pictures
+  has_and_belongs_to_many :tukus
 
 end

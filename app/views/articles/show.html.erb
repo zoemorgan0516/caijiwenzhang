@@ -10,14 +10,23 @@
 
 <hr />
 <p>
-
   <% @pictures.each_with_index do |picture, index| %>
-     <% if picture.persisted? %>
-    <img src="<%= picture.avatar.url('40') %>">
-      <%= link_to "修改", edit_article_picture_path(id: picture.id, article_id: params[:id]), class: "btn btn-default btn-xs" %>
-      <%= link_to "删除", article_picture_path(id: picture.id, article_id: params[:id]), method: :delete, class: "btn btn-default btn-xs" %>
-    <% if (index + 1) % 2 == 0 %>
-      <br />
-    <% end -%>
-    <% end -%>
-    <% end %>
+  <% if picture.persisted? %>
+        <img src="<%= picture.avatar.url('666') %>">
+          <%= link_to "修改", edit_article_picture_path(id: picture.id, article_id: params[:id]), class: "btn btn-default btn-xs" %>
+          <%= link_to "删除", article_picture_path(id: picture.id, article_id: params[:id]), method: :delete, class: "btn btn-default btn-xs" %>
+          <% if (index + 1) % 2 == 0 %>
+            <br>
+          <% end %>
+      <% end %>
+  <% end %>
+  <div class="line line-dashed b-b line-lg pull-in"></div>
+
+  <%= simple_form_for(@picture, url: article_pictures_path(article_id: params[:id]), html: { multipart: true, class: "form-horizontal" }) do |f| %>
+    <%= f.input :avatar, label: "图片" %>
+    <div class="line line-dashed b-b line-lg pull-in"></div>
+    <div class="col-sm-10 col-sm-offset-2">
+      <%= f.button :submit, "提 交", class: "btn btn-primary" %>
+      <%= link_to "返 回", articles_path, class: "btn btn-default" %>
+    </div>
+  <% end %>

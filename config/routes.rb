@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  resources :tukus
   resources :pictures
   devise_for :users
 
-  resources :pictures do
-    resources :articles
-  end
+  resources :pictures
+
+  resources :tukus
 
   resources :articles do
     resources :pictures
