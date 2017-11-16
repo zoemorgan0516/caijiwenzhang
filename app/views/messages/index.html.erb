@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <td>发送人</td>
       <td>内容</td>
       <td>查看</td>
     </tr>
@@ -13,6 +14,7 @@
   <tbody>
     <% @messages.each do |message| %>
       <tr>
+        <td><%= message.sender_id %></td>
         <td><%= message.content %></td>
         <td><%= link_to 'Show', message %></td>
       </tr>
