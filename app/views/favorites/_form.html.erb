@@ -1,4 +1,4 @@
-<%= simple_form_for(@favorite) do |f| %>
+<%= simple_form_for(@favorite, url: favorite_article_path(@article)) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">

@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     resources :comments
     member do
       put :traffic_up
+      put :fav
     end
 
     collection do

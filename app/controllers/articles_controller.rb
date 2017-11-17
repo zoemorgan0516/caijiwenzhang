@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    @articles = @articles.order_by(traffic: params[:order_by_traffic]) unless params[:order_by_traffic].blank?
   end
 
   def show
@@ -15,7 +16,9 @@ class ArticlesController < ApplicationController
 
     @comments = @article.comments
     @comment = @article.comments.new
+    @comment = @article.favorites.new
   end
+
 
   def new
     @article = Article.new
@@ -65,6 +68,13 @@ class ArticlesController < ApplicationController
     @article.traffic_add
     redirect_to article_path(@article)
   end
+
+  def fav
+    article = Article.find(params[:id])
+    @current_user.fav(article)
+    redirect_to article_path(article)
+  end
+
 
   def ascending
     @articles = Article.all

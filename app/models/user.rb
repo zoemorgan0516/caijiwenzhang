@@ -38,6 +38,12 @@ class User
     role == 'admin'
   end
 
+  def fav(article)
+    self.favorites.create(article_title: article.title,
+       username: self.email,
+       article: article)
+  end
+
   ## Confirmable
   # field :confirmation_token,   type: String
   # field :confirmed_at,         type: Time

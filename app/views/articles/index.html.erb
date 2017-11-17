@@ -25,8 +25,11 @@
             <td>来源</td>
             <td>
               阅读量排序
-              <%= link_to("up", ascending_articles_path) %>
-              <%= link_to("down", descending_articles_path) %>
+              <a href="/articles?order_by_traffic=desc">dd</a>
+              <a href="/articles?order_by_traffic=asc">ff</a>
+
+              <%= link_to("up", articles_path(order_by_traffic: :asc)) %>
+              <%= link_to("down", articles_path(order_by_traffic: :desc)) %>
             </td>
             <td>评论数量</td>
             <td>收藏数量</td>

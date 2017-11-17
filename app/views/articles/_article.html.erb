@@ -1,9 +1,10 @@
 <tr>
+  <%= article.id %>
   <td><%= link_to(article.title, traffic_up_article_path(article), method: :put)%></td>
   <td><%= article.gonghao_name %></td>
   <td><%= article.traffic %></td>
   <td><%= article.comments.count %></td>
-  <td><%= article.fav_count %></td>
+  <td><%= article.favorites.count %></td>
   <td><%= article.created_at.strftime("%F %T")%></td>
   <td><%= link_to('edit', edit_article_path(article), class: "btn btn-sm btn-default" ) %></td>
   <td><%= link_to('delete', article_path(article), class: "btn btn-sm btn-default",

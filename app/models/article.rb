@@ -25,9 +25,9 @@ class Article
     end
   end
 
-  def traffic_add
-    if self.clicks.create
-      self.inc(traffic: 1)
+  def fav_add
+    if self.favorites.create
+      self.inc(favourites: 1)
       true
     end
   end

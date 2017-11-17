@@ -1,3 +1,6 @@
+<h4><%= link_to("收藏本文", fav_article_path(@article), method: :put) %></h4>
+
+
 <table>
   <tr>
     <thead>
@@ -11,6 +14,7 @@
   </tr>
   <tr>
     <tbody>
+
       <td><%= @article.title %></td>
       <td><%= @article.content %></td>
       <td><%= @article.gonghao_name %></td>
@@ -24,20 +28,10 @@
   </tr>
 </table>
 <hr>
+
 <h3>评论</h3>
+<%= link_to("new comment", new_article_comment_path(@article)) %>
 
-<%= simple_form_for([@article, @comment]) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :speaker_name, label: "评论者" %>
-    <%= f.input :text, label: "评论内容" %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
 
 <h6>所有评论</h6>
 <table>
