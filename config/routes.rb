@@ -3,6 +3,7 @@ require 'sidekiq/cron/web'
 
 
 Rails.application.routes.draw do
+  resources :clicks
   resources :messages
   resources :pictures
   devise_for :users
@@ -16,6 +17,18 @@ Rails.application.routes.draw do
 
   resources :articles do
     resources :pictures
+    resources :clicks
+    resources :comments
+    member do
+      put :traffic_up
+    end
+
+    collection do
+      get :ascending
+      get :descending
+      get :time_order
+    end
+
   end
 
   namespace 'admin' do

@@ -1,12 +1,27 @@
-
-<%= @article.title %>
-<%= @article.content %>
-<%= @article.gonghao_name %>
-<%= @article.traffic %>
-<label class="col-sm-2 control-label string optional" for="article_from">文章标签</label>
-<% @article.labels.each do |label| %>
-   <%= label.name %>
-<% end %>
+<table>
+  <tr>
+    <thead>
+      <td>文章标题</td>
+      <td>文章内容</td>
+      <td>工号名字</td>
+      <td>阅读量</td>
+      <td>文章标签</td>
+    </thead>
+  </tr>
+  <tr>
+    <tbody>
+      <td><%= @article.title %></td>
+      <td><%= @article.content %></td>
+      <td><%= @article.gonghao_name %></td>
+      <td><%= @article.traffic %></td>
+      <td>
+        <% @article.labels.each do |label| %>
+           <%= label.name %>
+        <% end %>
+      </td>
+    </tbody>
+  </tr>
+</table>
 
 <hr />
 <p>
