@@ -6,6 +6,7 @@
       <td>工号名字</td>
       <td>阅读量</td>
       <td>文章标签</td>
+
     </thead>
   </tr>
   <tr>
@@ -16,23 +17,19 @@
       <td><%= @article.traffic %></td>
       <td>
         <% @article.labels.each do |label| %>
-           <%= label.name %>
+        <%= label.name %>
         <% end %>
       </td>
     </tbody>
   </tr>
 </table>
 
-<hr />
-<p>
 
-  <% @pictures.each_with_index do |picture, index| %>
-     <% if picture.persisted? %>
-    <img src="<%= picture.avatar.url('40') %>">
-      <%= link_to "修改", edit_article_picture_path(id: picture.id, article_id: params[:id]), class: "btn btn-default btn-xs" %>
-      <%= link_to "删除", article_picture_path(id: picture.id, article_id: params[:id]), method: :delete, class: "btn btn-default btn-xs" %>
-    <% if (index + 1) % 2 == 0 %>
-      <br />
-    <% end -%>
-    <% end -%>
-    <% end %>
+<%= simple_form_for(@comment, article_comments_path(@article)) do |f| %>
+  <%= f.input :speaker_name, label: "评论者" %>
+  <%= f.input :text, label: "评论内容" %>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

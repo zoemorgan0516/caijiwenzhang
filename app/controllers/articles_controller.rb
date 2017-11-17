@@ -11,12 +11,16 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @label = @article.labels
     @pictures = @article.pictures
+    @picture = @article.pictures.new
+
+    @comments = @article.comments
+    @comment = @article.comments.new
   end
 
   def new
     @article = Article.new
     @labels = Label.all.map{|label| [label.name, label.id.to_s]}
-    @picture = @article.pictures.new
+
   end
 
   def create
@@ -76,7 +80,8 @@ class ArticlesController < ApplicationController
 
   def time_order
     @articles = Article.all
-    @articles = @articles.order_by(:created_at => 'desc')
+    @articles = @articles.order_by(created_at: :desc)
+    render :index
   end
 
   private

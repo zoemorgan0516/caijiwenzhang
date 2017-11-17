@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :articles
   end
 
+  resources :comments
+
   resources :articles do
     resources :pictures
     resources :clicks

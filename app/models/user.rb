@@ -30,6 +30,7 @@ class User
   ROLES = [:admin, :user, :collector]
 
   has_many :articles
+  has_many :comments
 
 
   def admin?
