@@ -1,7 +1,14 @@
+require 'sidekiq/web'
+require 'sidekiq/cron/web'
+
+
 Rails.application.routes.draw do
   resources :messages
   resources :pictures
   devise_for :users
+
+
+  mount Sidekiq::Web => '/admin/sidekiq'
 
   resources :pictures do
     resources :articles

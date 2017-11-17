@@ -3,6 +3,10 @@
     <%= link_to("管理文章", articles_path, class: "btn btn-primary") %>
 
     <% if can? :read, Label %>
+    <a href="/admin/sidekiq" class="auto">
+      <i class="glyphicon glyphicon-stats icon text-primary"></i>
+      <span class="font-bold">控制面板</span>
+    </a>
       <%= link_to('管理标签', labels_path, class: "btn btn-primary") %>
       <%= link_to("管理图片", pictures_path, class: "btn btn-primary") %>
 

@@ -1,4 +1,4 @@
-source 'https://ruby.china-gems.org'
+source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -35,13 +35,24 @@ gem 'devise'
 gem 'simple_form'
 gem 'cancancan'
 gem 'bootstrap'
-gem 'cancancan'
+
 
 
 # 云存储gem
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'carrierwave-upyun'
+
+# 后台异步
+gem 'sidekiq'
+gem 'redis'
+gem 'sidekiq-cron'
+
+gem 'guard'
+gem 'guard-bundler', require: false
+
+gem 'config'
+
 
 
 group :development, :test do

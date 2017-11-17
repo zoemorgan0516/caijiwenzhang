@@ -8,7 +8,9 @@
           你有  <%= Message.where(status: false).count %>  条Messages未查看
           <%= link_to("点此查看",messages_path) %>
         <% else %>
-        你有  <%= Message.where(status: false).count %>  条Messages未查看
+        <a href="/messages">
+          <span>你有<%= Message.where(status: false).count %>条Messages未查看</span>
+        </a>
         <%= link_to("点此查看",messages_path) %>
         <% end %>
     <% else %>
