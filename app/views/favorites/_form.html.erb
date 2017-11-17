@@ -1,9 +1,7 @@
-<%= simple_form_for(@comment) do |f| %>
+<%= simple_form_for(@favorite) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :speaker_name, label: "评论者" %>
-    <%= f.input :text, label: "评论内容" %>
   </div>
 
   <div class="form-actions">

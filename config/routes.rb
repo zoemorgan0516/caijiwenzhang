@@ -3,6 +3,7 @@ require 'sidekiq/cron/web'
 
 
 Rails.application.routes.draw do
+  resources :favorites
   resources :clicks
   resources :messages
   resources :pictures
