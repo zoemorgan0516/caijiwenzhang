@@ -25,7 +25,7 @@
 </table>
 
 
-<%= simple_form_for(@comment, article_comments_path(@article)) do |f| %>
+<%= simple_form_for(@comment, url: article_comments_path(@article)) do |f| %>
   <%= f.input :speaker_name, label: "评论者" %>
   <%= f.input :text, label: "评论内容" %>
 
